@@ -30,19 +30,66 @@
               placeholder="Adicionar nova task"
               id="novaTask"
             />
-            <button onclick="seeInputvalue()">Enviar</button>
+            <button onclick= postTask()>Enviar</button>
           </div>
         </header>
         <div class="seeTaskdiv">
-            
+
         </div>
       </section>
     </div>
   </body>
   <script>
-      function seeInputvalue(){
-          let seeInputvalue = document.querySelector("#novaTask").value
-          console.log(seeInputvalue)
-      }
+    /* function getValueInput() {
+      let Input = document.querySelector("#novaTask").value;
+      console.log(Input);
+    }*/
+    const seeTaskdiv = document.querySelector(".seeTaskdiv");
+
+    const seeTaskUl = document.createElement("ul");
+    seeTaskdiv.appendChild(seeTaskUl);
+
+    function getTasks(){
+      fetch("https://mytod0list-api.herokuapp.com/src/controllers/list-tasks.php")
+        .then(response => response.json())
+        .then(data => {
+          console.log(data)
+          
+
+          for(i=0; i<data.tasks.length; i++){
+            const nameTask = data.tasks[i].name
+
+            const seeTaskLi = document.createElement("li")
+            seeTaskLi.innerText = nameTask
+            seeTaskUl.appendChild(seeTaskLi)
+          }
+        })
+    }
+    getTasks()
+
+    function clearTasks(){
+      seeTaskUl.innerHTML = ""
+    }
+
+    function atualizarTask(){
+      clearTasks()
+      getTasks()
+    }
+
+    function postTask(){
+      let nameInput = document.querySelector("#novaTask").value
+
+      const body = new FormData()
+      body.append("name",nameInput)
+
+      fetch("https://mytod0list-api.herokuapp.com/src/controllers/add-task.php", { method: "POST", body })
+        .then(response => response.json())
+        .then(data => {
+          atualizarTask()
+          
+
+        })
+    }
+
   </script>
 </html>
