@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="./task.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="header">
+      <header>
+        <img src="./LOGO-ROXA-LETREIRO.png" alt="logo" />
+      </header>
+    </div>
+    <div class="conteiner">
+      <section class="criaTask">
+        <header>
+          <h1>Minhas tasks</h1>
+          <div class="input-group">
+            <input
+              type="text"
+              placeholder="Adicionar nova task"
+              id="novaTask"
+            />
+            <button onclick="seeInputvalue()">Enviar</button>
+          </div>
+        </header>
+        <div class="seeTaskdiv">
+            
+        </div>
+      </section>
+    </div>
+  </body>
+  <script>
+      function seeInputvalue(){
+          let seeInputvalue = document.querySelector("#novaTask").value
+          console.log(seeInputvalue)
+      }
+  </script>
+</html>
