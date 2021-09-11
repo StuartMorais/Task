@@ -20,7 +20,7 @@
         <img src="./LOGO-ROXA-LETREIRO.png" alt="logo" />
       </header>
     </div>
-    <div class="conteiner">
+    <div class="container">
       <section class="criaTask">
         <header>
           <h1>Minhas tasks</h1>
@@ -57,7 +57,7 @@
           
 
           for(i=0; i<data.tasks.length; i++){
-            const nameTask = data.tasks[i].name
+            const nameTask = data.tasks[i].name.first
 
             const seeTaskLi = document.createElement("li")
             seeTaskLi.innerText = nameTask
